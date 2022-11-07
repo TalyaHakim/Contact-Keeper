@@ -33,8 +33,6 @@ const [state, dispatch] = useReducer(AuthReducer, initialState);
   if(localStorage.token) {
     setAuthToken(localStorage.token)
   }
-
-
    try {
      const res = await axios.get('/api/auth');
      dispatch({
@@ -71,18 +69,17 @@ const [state, dispatch] = useReducer(AuthReducer, initialState);
       payload: err.response.data.msg
     })
   }
-
 }
 
  // Login User
- const login = async formData => {
+ const login = async formData => { 
 
   const config = {
     headers: {
       'content-Type': 'application/json'
     }
   }
-
+  
   try {
     const res = await axios.post('/api/auth', formData, config)
     dispatch({
